@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Paribu Cineverse Ege Bölgesi</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chartist/dist/chartist.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chartist/dist/chartist.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/tabs.css">
+<link rel="stylesheet" href="css/timeline.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
+
+<!-- v4.0.0-alpha.6 -->
+<link rel="stylesheet" href="dist/bootstrap/css/bootstrap.min.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+<!-- Theme style -->
+<link rel="stylesheet" href="dist/css/style.css">
+<link rel="stylesheet" href="dist/css/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="dist/css/et-line-font/et-line-font.css">
+<link rel="stylesheet" href="dist/css/themify-icons/themify-icons.css">
+
+<!-- Chartist CSS -->
+<link rel="stylesheet" href="dist/plugins/chartist-js/chartist.min.css">
+<link rel="stylesheet" href="dist/plugins/chartist-js/chartist-init.css">
+<link rel="stylesheet" href="dist/plugins/chartist-js/chartist-plugin-tooltip.css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper boxed-wrapper">
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar"> 
+    <!-- sidebar: style can be found in sidebar.less -->
+    <div class="sidebar"> 
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="image text-center"><img src="dist/img/paribulogo.jpeg" class="img-circle" alt="User Image"> </div>
+        <div class="info">
+          <p>Ege Bölge Yönetim</p>
+          <a href="#"><i class="fa fa-cog"></i></a> <a href="#"><i class="fa fa-envelope-o"></i></a> <a href="#"><i class="fa fa-power-off"></i></a> </div>
+      </div>
+      
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">ANA MENÜ</li>
+        <li class="active treeview"> <a href="#"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+          <ul class="treeview-menu">
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="index2.html">Notlar</a></li>
+            <li><a href="index3.html">Gelir Grafiği</a></li>
+            <li><a href="index4.html">Personel Veritabanı</a></li>
+            <li><a href="index5.html">Gider Grafiği</a></li>
+            <li class="active"><a href="index6.html">Kar-Zarar Grafiği</a></li>
+
+          </ul>
+        </li>
+          <ul class="treeview-menu">
+            <li><a href="#">Level One</a></li>
+            <li class="treeview"> <a href="#">Level One <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+              <ul class="treeview-menu">
+                <li><a href="#"> Level Two</a></li>
+                <li class="treeview"> <a href="#">Level Two <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#">Level Three</a></li>
+                    <li><a href="#">Level Three</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Level One</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.sidebar --> 
+  </aside>
+  
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper"> 
+    <!-- Content Header (Page header) -->
+    <div class="content-header sty-one">
+      <h1>Dashboard</h1>
+      <ol class="breadcrumb">
+        <li><a href="#">Anasayfa</a></li>
+        <li><i class="fa fa-angle-right"></i> Dashboard</li>
+      </ol>
+    </div>
+    
+    <!-- Main content -->
+    <div class="content"> 
+      <!-- Small boxes (Stat box) -->
+    
+      <!-- /.row --> 
+      <!-- Main row -->
+      <div class="row">
+        <div class="col-lg-7 col-xlg-9">
+          <div class="info-box">
+            <div class="d-flex flex-wrap">
+              <div>
+                <h4 class="text-black">Ege Bölgesi TL Bazında Kar-Zarar Değerlendirmesi</h4>
+              </div>
+              <canvas id="karZararChart" width="400" height="200"></canvas>
+              <button id="updateLine">Y Ekseni Çizgisini Güncelle</button>
+              <script src="karZararChart.js"></script> <!-- JavaScript Kodları -->
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-xlg-3">
+          <div class="info-box">
+            <div class="d-flex flex-wrap">
+              <div>
+                <h4 class="text-black">Ege Bölgesi Gelir Dağılımı</h4>
+              </div>
+            </div>
+            <div class="m-t-2">
+            	<canvas id="gelirPieChart" height="210"></canvas>
+            </div>
+          </div>
+        </div>
+
+
+        
+        
+    <!-- /.content --> 
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">Version 1.2</div>
+    MARS SİNEMA SPORTİF TURİZM</footer>
+</div>
+<!-- ./wrapper --> 
+
+<!-- jQuery 3 --> 
+<script src="dist/js/jquery.min.js"></script> 
+
+<!-- v4.0.0-alpha.6 --> 
+<script src="dist/bootstrap/js/bootstrap.min.js"></script> 
+
+<!-- template --> 
+<script src="dist/js/niche.js"></script> 
+
+<!-- Chartjs JavaScript --> 
+<script src="dist/plugins/chartjs/chart.min.js"></script>
+<script src="dist/plugins/chartjs/chart-int.js"></script>
+
+<!-- Chartist JavaScript --> 
+<script src="dist/plugins/chartist-js/chartist.min.js"></script> 
+<script src="dist/plugins/chartist-js/chartist-plugin-tooltip.js"></script> 
+<script src="dist/plugins/functions/chartist-init.js"></script>
+
+<script>
+  fetch('/personel/sayisi')
+      .then(response => response.json())
+      .then(data => {
+          console.log('API Çıktısı:', data);
+          const personelSayisiElement = document.getElementById('personel-sayisi');
+          if (personelSayisiElement) {
+              personelSayisiElement.textContent = data.personel_sayisi;
+          }
+      })
+      .catch(error => console.error('Personel sayısı API hatası:', error));
+
+      // Sinema sayısını kutucuğa yerleştir
+function updateSinemaSayisi() {
+    fetch('/sinema/sayisi')
+        .then(response => response.json())
+        .then(data => {
+            const sinemaSayisiElement = document.getElementById('sinema-sayisi');
+            if (sinemaSayisiElement) {
+                sinemaSayisiElement.textContent = data.sinema_sayisi;
+            }
+        })
+        .catch(error => console.error('Sinema sayısı API hatası:', error));
+}
+
+// Sayfa yüklendiğinde sinema sayısını güncelle
+document.addEventListener('DOMContentLoaded', updateSinemaSayisi);
+
+// En Çok Gelir Elde Eden Şubeyi Kutucuğa Yerleştir
+function updateEnCokGelirSube() {
+    fetch('/en-cok-gelir-sube')
+        .then(response => response.json())
+        .then(data => {
+            const enCokGelirElement = document.getElementById('en-cok-gelir-sube');
+            if (enCokGelirElement) {
+                enCokGelirElement.textContent = data.sinema_adi || 'Bilinmiyor';
+            }
+        })
+        .catch(error => console.error('En çok gelir elde eden şube API hatası:', error));
+}
+
+// Sayfa yüklendiğinde en çok gelir elde eden şubeyi güncelle
+document.addEventListener('DOMContentLoaded', updateEnCokGelirSube);
+
+// En Az Gelir Elde Eden Şubeyi Kutucuğa Yerleştir
+function updateEnAzGelirSube() {
+    fetch('/en-az-gelir-sube')
+        .then(response => response.json())
+        .then(data => {
+            const enAzGelirElement = document.getElementById('en-az-gelir-sube');
+            if (enAzGelirElement) {
+                enAzGelirElement.textContent = data.sinema_adi || 'Bilinmiyor';
+            }
+        })
+        .catch(error => console.error('En az gelir elde eden şube API hatası:', error));
+}
+
+// Sayfa yüklendiğinde en az gelir elde eden şubeyi güncelle
+document.addEventListener('DOMContentLoaded', updateEnAzGelirSube);
+
+function createKarZararChart() {
+    fetch('/kar-zarar-durumu')
+        .then(response => response.json())
+        .then(data => {
+            const labels = data.map(item => item.sinema_adi);
+            const karZararValues = data.map(item => item.kar_zarar);
+
+            const ctx = document.getElementById('karZararChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Kar-Zarar Durumu',
+                        data: karZararValues,
+                        borderColor: 'rgba(255, 99, 132, 1)', // Çizgi rengi
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)', // Dolgu rengi
+                        borderWidth: 2,
+                        tension: 0.4, // Eğri çizgi
+                        pointStyle: 'circle',
+                        pointBackgroundColor: 'rgba(54, 162, 235, 1)', // Nokta rengi
+                        pointBorderColor: 'rgba(255, 159, 64, 1)',
+                        pointBorderWidth: 2,
+                        pointRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Şubelerin Kar-Zarar Durumu',
+                            color: '#333',
+                            font: {
+                                size: 18,
+                                weight: 'bold'
+                            }
+                        },
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                color: '#333',
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        },
+                        tooltip: {
+                            enabled: true,
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: '#fff',
+                            bodyColor: '#fff',
+                            borderColor: '#fff',
+                            borderWidth: 1
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Şubeler',
+                                color: '#333',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Kar-Zarar (TL)',
+                                color: '#333',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => console.error('Kar-Zarar API hatası:', error));
+}
+
+document.addEventListener('DOMContentLoaded', createKarZararChart);
+
+
+
+
+// Şubelerin Kar-Zarar Durumunu Pie Chart ile Göster
+function createKarZararPieChart() {
+    fetch('/kar-zarar-durumu')
+        .then(response => response.json())
+        .then(data => {
+            // Chart.js için verileri hazırlayın
+            const labels = data.map(item => item.sinema_adi); // Şube isimleri
+            const karZararValues = data.map(item => item.kar_zarar); // Kar-Zarar değerleri
+
+            // Pie chart oluştur
+            const ctx = document.getElementById('karZararPieChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Kar-Zarar Durumu',
+                        data: karZararValues,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 206, 86, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(153, 102, 255, 0.6)',
+                            'rgba(255, 159, 64, 0.6)',
+                            'rgba(199, 199, 199, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(199, 199, 199, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        tooltip: {
+                            enabled: true
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => console.error('Kar-Zarar Pie Chart API hatası:', error));
+}
+
+
+
+
+
+
+
+
+function createGelirPieChart() {
+    fetch('/gelirler-pie')
+        .then(response => response.json())
+        .then(data => {
+            // Verileri hazırlayın
+            const labels = data.map(item => item.sinema_adi); // Şube isimleri
+            const gelirValues = data.map(item => item.toplam_gelir); // Toplam gelir değerleri
+
+            // Gelirler için renkler
+            const backgroundColors = gelirValues.map(() => {
+                const r = Math.floor(Math.random() * 255);
+                const g = Math.floor(Math.random() * 255);
+                const b = Math.floor(Math.random() * 255);
+                return `rgba(${r}, ${g}, ${b}, 0.6)`; // Rastgele renkler
+            });
+
+            // Pie chart oluştur
+            const ctx = document.getElementById('gelirPieChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Toplam Gelirler',
+                        data: gelirValues,
+                        backgroundColor: backgroundColors,
+                        borderColor: 'rgba(0, 0, 0, 0.1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        tooltip: {
+                            enabled: true
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => console.error('Gelir Pie Chart API hatası:', error));
+}
+
+// Sayfa yüklendiğinde pie chart oluştur
+document.addEventListener('DOMContentLoaded', createGelirPieChart);
+
+
+
+
+
+
+
+
+
+
+
+
+
+function loadNotlar() {
+    fetch('/notlar')
+        .then(response => response.json())
+        .then(data => {
+            const notlarContainer = document.getElementById('notlarContainer');
+            notlarContainer.innerHTML = ''; // Önceki notları temizle
+
+            data.forEach(not => {
+                const notDiv = document.createElement('div');
+                notDiv.className = 'not';
+                notDiv.innerHTML = `
+                    <p>${not.icerik}</p>
+                    <button onclick="editNot(${not.not_id}, '${not.icerik}')">Düzenle</button>
+                    <button onclick="deleteNot(${not.not_id})">Sil</button>
+                `;
+                notlarContainer.appendChild(notDiv);
+            });
+        });
+}
+
+
+
+
+
+function addNot() {
+    const notIcerik = document.getElementById('notIcerik').value;
+    fetch('/notlar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ icerik: notIcerik })
+    })
+        .then(() => {
+            document.getElementById('notIcerik').value = '';
+            loadNotlar(); // Notları yeniden yükle
+        });
+}
+
+function deleteNot(id) {
+    fetch(`/notlar/${id}`, { method: 'DELETE' })
+        .then(() => loadNotlar()); // Notları yeniden yükle
+}
+
+function editNot(id, eskiIcerik) {
+    const yeniIcerik = prompt('Yeni not içeriğini girin:', eskiIcerik);
+    if (yeniIcerik) {
+        fetch(`/notlar/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ icerik: yeniIcerik })
+        })
+            .then(() => loadNotlar()); // Notları yeniden yükle
+    }
+}
+
+document.addEventListener('DOMContentLoaded', loadNotlar);
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const personelDropdown = document.getElementById('personelDropdown');
+    const personelList = document.getElementById('personelList');
+
+    // Şube değiştiğinde personel listesini güncelle
+    personelDropdown.addEventListener('change', (event) => {
+        const sinemaID = event.target.value;
+        fetchPersoneller(sinemaID);
+    });
+
+    // Personel Verilerini Çek ve Listeyi Güncelle
+    function fetchPersoneller(sinemaID) {
+        fetch(`/personeller/${sinemaID}`)
+            .then(response => response.json())
+            .then(data => {
+                // Gelen veri array değilse, array'e çevir
+                const personeller = Array.isArray(data) ? data : [data];
+
+                // Listeyi temizle
+                personelList.innerHTML = '';
+
+                // Gelen personel verilerini listeye ekle
+                if (personeller.length === 0) {
+                    const li = document.createElement('li');
+                    li.textContent = 'Bu şube için çalışan bulunamadı.';
+                    personelList.appendChild(li);
+                } else {
+                    personeller.forEach(personel => {
+                        const li = document.createElement('li');
+                        li.textContent = personel.ad_soyad;
+                        personelList.appendChild(li);
+                    });
+                }
+            })
+            .catch(error => console.error('Personel Verisi Hatası:', error));
+    }
+
+    // Varsayılan olarak ilk şube personellerini yükle
+    fetchPersoneller(personelDropdown.value);
+});
+
+
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.7/js/tether.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dist/plugins/chartjs/chart.min.js"></script>
+
+
+
+</body>
+</html>
